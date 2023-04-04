@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+<style>
+    
+h1 {
+    text-align: center;
+  }
+  
+
+ 
+</style>
+<script>
+    function Func() {
+      
+      var copyText = document.getElementById("Input");
+    
+      copyText.select();
+      copyText.setSelectionRange(0, 99999);
+      navigator.clipboard.writeText(copyText.value);
+      
+      
+    }
+    </script>
+
+<h1 style="color:rgb(87, 21, 134)">URL Shortener Web Application</h1>
+
+<div class="center" >
+    <form style=" width: 25vw;" action="{{url_for('home')}}" method="POST">
+        
+   
+            <label style="color:rgb(0,0,0); font-size:25px">Original URL(s)</label> 
+            <input type="text" style="height: 25px; width:600px;" size="30"   name="in_1" placeholder="Type URL here..." >
+            <br><br>
+ 
+          <button  type='submit' class="btn btn-primary">Generate Short url</button>
+        </form>
+<br>        
+    <div style=" width: 25vw">
+            <label style="color:rgb(0,0,0); font-size:25px">Shorten URL</label>
+         <input  type="text" style="height: 25px; width:600px;" size="40" value="{{s}}" id="Input" ><br><br>
+         
+         <button type='submit'  class="btn btn-success" onclick="Func()" style= "cursor:pointer" > Copy URL</button>
+        </div>
+     </div>
+  
+    
+{% endblock %}

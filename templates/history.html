@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+URL(s) History
+{% endblock %}
+<br><br>
+{% block content %}
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid black;
+    }
+</style>
+
+<h1    align ="center" style="color:rgb(0,0,0)"> URL(s) History... </h1>
+<table align ="center" style="background-color:#ffffff">
+    <tr>
+        <th>S.No</th>
+        <th>Original URL(s)</th>
+        <th>Shorten URL(s)</th>
+    </tr>
+
+    
+    <tbody>
+    {% for row in content %}
+    <tr>
+        <td><a href={{row.id}}>{{row.id}}</a> </a></td>
+        <td><a href={{row.Original_URL}}>{{row.Original_URL}}</a> </a></td>
+        <td><a href={{row.Shorten_URL}}>{{row.Shorten_URL}}</a> </a></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock%}
+
+
